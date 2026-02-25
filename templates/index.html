@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a href="/add" class="btn">Ajouter un utilisateur</a>
+
+<table>
+    <tr>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for user in users %}
+    <tr>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.age }}</td>
+        <td>
+            <a href="/edit/{{ user.id }}" class="edit">Modifier</a>
+            <a href="/delete/{{ user.id }}" class="delete">Supprimer</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
